@@ -1,0 +1,9 @@
+<VBox fx:id="vbox" alignment="CENTER" spacing="10" xmlns:fx="http://javafx.com/fxml" fx:controller="controllers.VentanaImpresionController">
+    <Label fx:id="lblArchivoSeleccionado" text="Archivo seleccionado:" />
+    <ImageView fx:id="imageView" fitWidth="200" fitHeight="200" preserveRatio="true" />
+    <HBox alignment="CENTER" spacing="10">
+        <Button fx:id="btnBuscar" text="Buscar" onAction="#buscarArchivo" />
+        <Button fx:id="btnMostrarVistaPrevia" text="Mostrar Vista Previa" onAction="#mostrarVistaPrevia" />
+        <Button fx:id="btnImprimir" text="Imprimir" onAction="#imprimirArchivo" />
+    </HBox>
+</VBox>

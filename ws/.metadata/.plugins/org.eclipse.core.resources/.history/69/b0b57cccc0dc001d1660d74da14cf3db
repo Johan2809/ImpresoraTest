@@ -1,0 +1,61 @@
+package controllers;
+
+import application.Aplicacion;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.stage.FileChooser;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
+import java.io.File;
+
+import javax.swing.JOptionPane;
+
+public class VentanaImpresionController {
+
+    @FXML
+    private Button btnImprimir;
+
+    @FXML
+    private Button btnBuscar;
+
+    private Aplicacion aplicacion;
+
+    @FXML
+    private Label lblArchivoSeleccionado;
+
+    @FXML
+    private ImageView imageView;
+
+    @FXML
+    private ImageView contenedorImageView;
+
+    @FXML
+    void BuscarArchivo(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        File archivoSeleccionado = fileChooser.showOpenDialog(aplicacion.getPrimaryStage());
+
+        if (archivoSeleccionado != null) {
+            lblArchivoSeleccionado.setText("Archivo seleccionado: " + archivoSeleccionado.getAbsolutePath());
+
+        }
+    }
+
+    @FXML
+    void ImprimirArchivo(ActionEvent event) {
+        String archivoSeleccionado = lblArchivoSeleccionado.getText().replace("Archivo seleccionado: ", "");
+        // Implementar la lógica para imprimir el archivo seleccionado
+        if (!archivoSeleccionado.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Imprimiendo");
+        }
+    }
+
+    public void setAplicacion(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
+    }
+}

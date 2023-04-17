@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="372.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.VentanaImpresionController">
+   <children>
+      <Button fx:id="btnBuscar" layoutX="59.0" layoutY="26.0" mnemonicParsing="false" onAction="#BuscarArchivo" prefHeight="39.0" prefWidth="182.0" text="Buscar Archivo " />
+      <Button fx:id="btnImprimir" layoutX="66.0" layoutY="231.0" mnemonicParsing="false" onAction="#ImprimirArchivo" prefHeight="39.0" prefWidth="169.0" text="Imprimir" />
+      <Label fx:id="lblArchivoSeleccionado" layoutX="12.0" layoutY="65.0" prefHeight="65.0" prefWidth="276.0" />
+      <ImageView fx:id="contenedorImagen" fitHeight="108.0" fitWidth="276.0" layoutX="13.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,44 @@
+package application;
+
+import controllers.VentanaImpresionController;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
+public class Aplicacion extends Application {
+
+    private Stage primaryStage; // Añadir una variable para almacenar la referencia a la ventana principal
+
+    @Override
+    public void start(Stage primaryStage) {
+        this.primaryStage = primaryStage; // Asignar la referencia a la ventana principal a la variable
+
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/views/VentanaImpresionView.fxml"));
+            AnchorPane anchorPane = (AnchorPane) loader.load();
+            VentanaImpresionController ventanaImpresionController = loader.getController();
+            ventanaImpresionController.setAplicacion(this);
+
+            Scene scene = new Scene(anchorPane);
+            primaryStage.setTitle("Ventana de Impresion");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    // Implementar el método getPrimaryStage() para devolver la referencia a la ventana principal
+    public Window getPrimaryStage() {
+        return primaryStage;
+    }
+}
+

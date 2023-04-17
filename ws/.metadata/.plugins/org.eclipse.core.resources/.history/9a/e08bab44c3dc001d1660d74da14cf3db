@@ -1,0 +1,86 @@
+package controllers;
+
+import application.Aplicacion;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.stage.FileChooser;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+
+import java.io.File;
+
+import javax.swing.JOptionPane;
+
+public class VentanaImpresionController {
+
+    @FXML
+    private Button btnImprimir;
+
+    @FXML
+    private Button btnBuscar;
+
+    private Aplicacion aplicacion;
+
+    @FXML
+    private Label lblArchivoSeleccionado;
+
+    @FXML
+    private ImageView imageView;
+
+    @FXML
+    private ImageView contenedorImageView;
+
+    @FXML
+    void BuscarArchivo(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        File archivoSeleccionado = fileChooser.showOpenDialog(aplicacion.getPrimaryStage());
+
+        if (archivoSeleccionado != null) {
+            lblArchivoSeleccionado.setText("Archivo seleccionado: " + archivoSeleccionado.getAbsolutePath());
+            Image imagen = new Image(archivoSeleccionado.toURI().toString());
+            if(imagen!=null)
+            imageView.setImage(imagen);
+            else{System.out.println("error");}
+        }
+    }
+
+    @FXML
+    void mostrarVistaPrevia(ActionEvent event) {
+        File archivoSeleccionado = new File(lblArchivoSeleccionado.getText().replace("Archivo seleccionado: ", ""));
+        if (archivoSeleccionado.exists()) {
+            Image image = new Image(archivoSeleccionado.toURI().toString());
+            ImageView imageView = new ImageView(image);
+            VBox vbox = new VBox(imageView);
+            javafx.scene.Scene scene = new javafx.scene.Scene(vbox);
+            javafx.stage.Stage stage = new javafx.stage.Stage();
+            imageView.setFitWidth(500);
+			imageView.setFitHeight(500);
+			imageView.setPreserveRatio(true);
+
+            stage.setTitle("Vista previa de imagen");
+            stage.setScene(scene);
+            stage.show();
+        } else {
+            JOptionPane.showMessageDialog(null, "No se ha seleccionado ningún archivo.");
+        }
+    }
+
+
+    @FXML
+    void ImprimirArchivo(ActionEvent event) {
+        String archivoSeleccionado = lblArchivoSeleccionado.getText().replace("Archivo seleccionado: ", "");
+        // Implementar la lógica para imprimir el archivo seleccionado
+        if (!archivoSeleccionado.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Imprimiendo");
+        }
+    }
+
+    public void setAplicacion(Aplicacion aplicacion) {
+        this.aplicacion = aplicacion;
+    }
+}

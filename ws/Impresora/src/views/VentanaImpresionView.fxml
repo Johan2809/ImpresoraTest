@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="295.0" prefWidth="497.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.VentanaImpresionController">
+   <children>
+      <Button fx:id="btnBuscar" layoutX="113.0" layoutY="26.0" mnemonicParsing="false" onAction="#BuscarArchivo" prefHeight="39.0" prefWidth="260.0" text="Buscar Archivo " textFill="#0059ff">
+         <font>
+            <Font name="Bodoni MT" size="18.0" />
+         </font></Button>
+      <Button fx:id="btnImprimir" layoutX="119.0" layoutY="200.0" mnemonicParsing="false" onAction="#ImprimirArchivo" prefHeight="39.0" prefWidth="260.0" text="Imprimir" textFill="#0059ff">
+         <font>
+            <Font name="Bodoni MT" size="18.0" />
+         </font></Button>
+      <Label fx:id="lblArchivoSeleccionado" layoutX="12.0" layoutY="65.0" prefHeight="48.0" prefWidth="485.0" styleClass="label-style" />
+      <Button fx:id="btnVistaPrevia" layoutX="161.0" layoutY="113.0" onAction="#mostrarVistaPrevia" prefHeight="39.0" prefWidth="175.0" styleClass="button-style" text="Vista previa" textFill="#0059ff">
+         <font>
+            <Font name="Bodoni MT" size="18.0" />
+         </font></Button>
+
+   </children>
+</AnchorPane>
